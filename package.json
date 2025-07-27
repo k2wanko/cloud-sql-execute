@@ -1,0 +1,61 @@
+{
+	"name": "cloud-sql-execute",
+	"version": "1.0.3",
+	"description": "A CLI tool that executes SQL statements using Google Cloud SQL Admin API's ExecuteSql method",
+	"main": "dist/index.js",
+	"module": "src/index.ts",
+	"type": "module",
+	"private": false,
+	"bin": {
+		"cloud-sql-execute": "./dist/index.js"
+	},
+	"scripts": {
+		"build": "bun build src/index.ts --outdir dist --target node && chmod +x dist/index.js",
+		"prepublishOnly": "bun run build",
+		"test": "bun test",
+		"lint": "biome check && tsc --noEmit",
+		"fix": "biome check --write"
+	},
+	"keywords": [
+		"google-cloud",
+		"cloud-sql",
+		"sql",
+		"cli",
+		"database",
+		"google-cloud-platform",
+		"gcp",
+		"bun",
+		"typescript"
+	],
+	"author": "k2wanko",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/k2wanko/cloud-sql-execute.git"
+	},
+	"homepage": "https://github.com/k2wanko/cloud-sql-execute",
+	"bugs": {
+		"url": "https://github.com/k2wanko/cloud-sql-execute/issues"
+	},
+	"engines": {
+		"node": ">=18.0.0"
+	},
+	"dependencies": {
+		"commander": "^12.1.0",
+		"google-auth-library": "^9.15.0",
+		"pino": "^8.21.0",
+		"pino-pretty": "^11.2.2"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.1.2",
+		"@types/bun": "latest"
+	},
+	"peerDependencies": {
+		"typescript": "^5"
+	},
+	"files": [
+		"dist/index.js",
+		"README.md",
+		"LICENSE"
+	]
+}
